@@ -54,7 +54,8 @@ import itertools
 def pickCard(bet):
     global money
     global cardname
-    deck = list(itertools.product(range(2,14),['Spade','Heart','Diamond','Club']))
+    global cardname2
+    deck = list(itertools.product(range(9,14),['Spade','Heart','Diamond','Club']))
     random.shuffle(deck)
 
     for i in range(1):
@@ -67,22 +68,11 @@ def pickCard(bet):
     for i in range(1):
         value2 = deck[i][0]
         suits2 = deck[i][1]   
-
-   
     
-    if value1 < 11:
-        cardname =  str(value1)
-    elif value1 == 11 or value2 == 11:
-        cardname = "Jack"
-    elif value1 == 12 or value2 == 12:
-        cardname = "Queens"
-    elif value1 == 13 or value2 == 13:
-        cardname = "King"
-    elif value1 == 14 or value2 == 14:
-        cardname = "Ace"
+    print(deck)
     
-    print("You: " + cardname + " of "  + suits1)
-    print("Computer:",value2, "of", suits2)
+    print("You: " + cardValues(value1) + " of "  + suits1)
+    print("Computer: " + cardValues(value2) + " of "  + suits2)
 
     if value1 == value2:
         print("Nobody wins")
@@ -96,7 +86,17 @@ def pickCard(bet):
         money -= bet
         print("Computer wins, you lost " + str(bet) + ". You have the total of " + str(money))
     
-
+def cardValues(num):
+    if num < 11:
+        return str(num)
+    if num == 11:
+        return "Jack"
+    if num == 12:
+        return "Queens"
+    if num == 13:
+        return "King"
+    if num == 14:
+        return "Ace"
 
 #Call your game of chance functions here
 print(" ")
