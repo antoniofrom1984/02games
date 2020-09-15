@@ -145,7 +145,7 @@ def roulette(guess, bet):
     #check if it fell in 0 or 00 position
     elif pick == roulette[19] or  pick == roulette[0]:
         money -= bet
-        print("you LOSE " + str(bet) +"£! landed on 0 or 00! You have the total of "  + str(money)+ "£. \u001b[0m")
+        print("\u001b[41m you LOSE " + str(bet) +"£! landed on 0 or 00! You have the total of "  + str(money)+ "£. \u001b[0m")
         print(" ")
         return None
     
