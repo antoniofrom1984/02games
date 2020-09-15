@@ -13,6 +13,11 @@ def coinFlip(guess, bet):
             print("Please mind spealing 'Tails' or 'Heads'")
             print(" ")
             return 
+    #check if you using a number for you bet
+    if type(bet) != int and type(bet) != float:
+        print("Please use a number for your bet")
+        print(" ")
+        return 
     if bet <= 0 or bet > money :
         print("bet a positive value that you can afford!")
         return 0
@@ -44,7 +49,7 @@ def chohan(guess, bet):
             print("Please mind spealing 'Even' or 'Odd'")
             print(" ")
             return 
-    
+    #check if you can afford the bet
     if bet <= 0 or bet > money :
         print("bet a positive value that you can afford!")
         return 0
@@ -66,15 +71,17 @@ from itertools import product
 
 def pickCard(bet):
     global money
-
+    #create deck
     deck = list(product(range(2,14),['Spade','Heart','Diamond','Club']))
+    #shuffle deck
     random.shuffle(deck)
-
+    #choose the first card of shuffled deck, player
     for i in range(1):
         value1 = deck[i][0]
         suits1 = deck[i][1]     
-
+    #remove card from deck
     deck.pop(0)
+    #shuffle for computer player
     random.shuffle(deck)
 
     for i in range(1):
@@ -98,7 +105,7 @@ def pickCard(bet):
         money -= bet
         print("Computer wins, you lost " + str(bet) + "£. You have the total of " + str(money)+ "£.")
 
-#helper function to give names to the cardss
+#helper function to give names to the cards
 def cardValues(num):
     if num < 11:
         return str(num)
@@ -171,6 +178,7 @@ coinFlip("Tails", 10)
 coinFlip("Tails", 20)
 coinFlip("Heads", 30)
 coinFlip("Heads  ", 2)
+coinFlip("Heads", "money")
 
 print(" ")
 print(" Chohan ")
