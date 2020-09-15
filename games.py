@@ -10,16 +10,16 @@ def coinFlip(guess, bet):
     #make sure is the required spealing
     if type(guess) == str:
         if guess != "Tails" and guess != "Heads": 
-            print("Please mind spealing 'Tails' or 'Heads'")
+            print("\u001b[33m Please mind spealing 'Tails' or 'Heads'\u001b[0m")
             print(" ")
             return 
     #check if you using a number for you bet
     if type(bet) != int and type(bet) != float:
-        print("Please use a number for your bet")
+        print("\u001b[33m Please use a number for your bet \u001b[0m")
         print(" ")
         return 
     if bet <= 0 or bet > money :
-        print("bet a positive value that you can afford!")
+        print("\u001b[33m bet a positive value that you can afford! \u001b[0m")
         return 0
     
     num = random.randint(0,1)
@@ -28,14 +28,14 @@ def coinFlip(guess, bet):
     if num == 0 and guess == "Tails" or num == 1 and guess == "Heads":
         money += bet
         # print(" ")
-        print("!!! You WIN " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money) + "£.  !!!" )
+        print("\u001b[42m You WIN " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money) + "£. \u001b[0m" )
         # print(" ")
         return money
 #loose
     else:
         money -= bet
         # print(" ")
-        print("You LOST " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money)+ "£." )
+        print("\u001b[41m You LOST " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money)+ "£. \u001b[0m" )
         # print(" ")
         return money
 
@@ -61,10 +61,10 @@ def chohan(guess, bet):
 
     if result % 2 == 0 and guess == "Even" or result % 2 != 0 and guess == "Odd":
         money += bet
-        print("!!! You WIN " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money) + "£  !!!" )
+        print("\u001b[42m You WIN " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money) + "£. \u001b[0m" )
     else:
         money -= bet
-        print("You LOSE " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money)+ "£." )
+        print("\u001b[41m You LOSE " + str(bet) + "£ with the guess " + guess + " you have the total of " + str(money)+ "£. \u001b[0m" )
   
 # import itertools
 from itertools import product
@@ -99,11 +99,11 @@ def pickCard(bet):
     
     if value1 > value2:
         money += bet
-        print("!!! You WIN " + str(bet) + "£. You have the total of " + str(money) + "$  !!!" )
+        print("\u001b[42m You WIN " + str(bet) + "£. You have the total of " + str(money) + "$. \u001b[0m" )
 
     else:
         money -= bet
-        print("Computer wins, you lost " + str(bet) + "£. You have the total of " + str(money)+ "£.")
+        print("\u001b[41m Computer wins, you lost " + str(bet) + "£. You have the total of " + str(money)+ "£. \u001b[0m")
 
 #helper function to give names to the cards
 def cardValues(num):
@@ -130,7 +130,7 @@ def roulette(guess, bet):
     #make sure is the required spealing
     if type(guess) == str:
         if guess != "Even" and guess != "Odd": 
-            print("Please mind spealing 'Even' or 'Odd'")
+            print("\u001b[33m Please mind spealing 'Even' or 'Odd' \u001b[0m")
             print(" ")
             return 
     
@@ -139,29 +139,29 @@ def roulette(guess, bet):
 
     #check if you can afford it
     if bet <= 0 or bet > money :
-        print("bet a positive value that you can afford!")
+        print("\u001b[33m Bet a positive value that you can afford! \u001b[0m")
         return None
     
     #check if it fell in 0 or 00 position
     elif pick == roulette[19] or  pick == roulette[0]:
         money -= bet
-        print("you LOSE " + str(bet) +"£! landed on 0 or 00! You have the total of "  + str(money)+ "£.")
+        print("you LOSE " + str(bet) +"£! landed on 0 or 00! You have the total of "  + str(money)+ "£. \u001b[0m")
         print(" ")
         return None
     
     elif pick % 2 == 0 and guess == "Even" or pick % 2 != 0 and guess == "Odd":
         money += bet
-        print("You Win "+ str(bet) +"£! You have the total of "  + str(money)+ "£.")
+        print("\u001b[42m You Win "+ str(bet) +"£! You have the total of "  + str(money)+ "£. \u001b[0m")
         print(" ")
         return None
     elif guess == pick:
         money += bet * 35
-        print("You Win "+ str(bet*35) +"£! You have the total of "  + str(money)+ "£.")
+        print("\u001b[42m You Win "+ str(bet*35) +"£! You have the total of "  + str(money)+ "£. \u001b[0m")
         print(" ")
         return 
 
     else:
-        print("you LOSE " + str(bet) +"£!! You have the total of "  + str(money)+ "£.")
+        print("\u001b[41m you LOSE " + str(bet) +"£!! You have the total of "  + str(money)+ "£. \u001b[0m")
         print(" ")
 
 
